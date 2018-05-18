@@ -1,8 +1,3 @@
-<?php
-    include "inc/connect.php";
-
-    $db = getDBConnection();
-?>
 <!doctype html>
 <html lang="en">
     <head>
@@ -15,22 +10,22 @@
 
         <link rel="stylesheet" href="css/styles.css" type="text/css" />
 
-        <title>TinyPokedex - Home</title>
+        <title>TinyPokedex - Login</title>
     </head>
     <header>
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">Home</a>
+            <a class="navbar-brand" href="#">Login</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="login.php">Log in</a>
+                        <a class="nav-link" href="index.php">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Log in</a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
@@ -41,32 +36,27 @@
         </nav>
     </header>
     <body>
-        <h1 class='text-center'>TinyPokedex</h1>
-        <br/>
-        <table class='table table-hover text-center' style='width: 90%; margin: auto;'>
-            <thead class='thead-dark'>
-                <tr>
-                    <th>Image</th>
-                    <th>N° <button id='sort' class='badge text-hide'>S</button></button></th>
-                    <th>Types</th>
-                    <th>Name</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                    $pokemons = $db->query("SELECT * FROM pokemons");
-                    while ($pokemon = $pokemons->fetch(PDO::FETCH_ASSOC))
-                    {
-                        echo "<tr>
-                                <td><img src='".$pokemon['img_url']."' class='rounded' alt = 'img'></td>
-                                <td>".$pokemon['id']."</td>
-                                <td>".$pokemon['type1']."<br/>".$pokemon['type2']."</td>
-                                <td class='text-capitalize'>".$pokemon['name']."</td>
-                            </tr>";
-                    }
-                ?>
-            </tbody>
-        </table>
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+                <a href="#login" aria-controls="login" role="tab" data-toggle="tab" class="nav-link active">Login</a>
+            </li>
+            <li class="nav-item">
+                <a href="#register" aria-controls="register" role="tab" data-toggle="tab" class="nav-link">Register</a>
+            </li>
+        </ul>
+        <div class='tab-content text-center'>
+            <div class='tab-pane active' id='login'>
+                <h1>Login</h1><br/>
+                <form method="post" action="verifyUser.php">
+                    <input type="text" name="username" placeholder="Username"/><br />
+                    <input type="password" name="password" placeholder="Password" /><br />
+                    <br/><input type="submit" name="submit" value="Login" class="btn btn-primary"/>
+                </form>
+            </div>
+            <div class='tab-pane' id='register'>
+                <h1>Register</h1><br/>
+            </div>
+        </div>
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
