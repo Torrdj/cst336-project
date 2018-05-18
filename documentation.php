@@ -10,11 +10,11 @@
 
         <link rel="stylesheet" href="css/styles.css" type="text/css" />
 
-        <title>TinyPokedex - Login</title>
+        <title>TinyPokedex - Documentation</title>
     </head>
     <header>
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">Login</a>
+            <a class="navbar-brand" href="#">Doc</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -24,11 +24,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="index.php">Home</a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Log in</a>
-                    </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="documentation.php">Documentation</a>
+                        <a class="nav-link" href="login.php">Log in</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Documentation</a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
@@ -41,33 +41,38 @@
     <body>
         <ul class="nav nav-tabs" role="tablist">
             <li class="nav-item">
-                <a href="#login" aria-controls="login" role="tab" data-toggle="tab" class="nav-link active">Login</a>
+                <a href="#user" aria-controls="user" role="tab" data-toggle="tab" class="nav-link active">User Story</a>
             </li>
             <li class="nav-item">
-                <a href="#register" aria-controls="register" role="tab" data-toggle="tab" class="nav-link">Register</a>
+                <a href="#mockup" aria-controls="mockup" role="tab" data-toggle="tab" class="nav-link">Mockup</a>
+            </li>
+            <li class="nav-item">
+                <a href="#screenshots" aria-controls="screenshots" role="tab" data-toggle="tab" class="nav-link">Screenshots</a>
             </li>
         </ul>
         <div class='tab-content text-center'>
-            <div class='tab-pane active' id='login'>
-                <h1>Login</h1><br/>
-                <form id="loginForm" method="post" action="verifyUser.php">
-                    <div class='form-group row justify-content-center'>
-                        <label for="username" class="col-sm-2 col-form-label">Username</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" id="username" placeholder="Username" required>
-                        </div>
-                    </div>
-                    <div class='form-group row justify-content-center'>
-                        <label for="password" class="col-sm-2 col-form-label">Password</label>
-                        <div class="col-sm-4">
-                            <input type="password" class='form-control' id="password" placeholder="Password" required>
-                        </div>
-                    </div>
-                    <br/><input type="submit" name="submit" value="Login" class="btn btn-primary"/>
-                </form>
+            <div class='tab-pane active' id='user'>
+                <h1>User Story</h1><br/>
+                <p class='text-justify' style='white-space: pre;'>
+                    User Story:
+                        User:
+                            Able to use the website without being logged.
+                        Admin:
+                            - Able to use the website whithout being logged.
+                            - Once logged, can add pokemons or add/delete users from the database.
+                        Superadmin:
+                            It's me and only me.
+                </p>
             </div>
-            <div class='tab-pane' id='register'>
-                <h1>Register</h1><br/>
+            <div class='tab-pane' id='mockup'>
+                <h1>Mockup</h1><br/>
+                <img src="documentation/mockup/0.png"></img>
+            </div>
+            <div class='tab-pane' id='screenshots'>
+                <h1>Screenshots</h1><br/>
+                <img src="documentation/screenshots/0.PNG"></img>
+                <img src="documentation/screenshots/1.PNG"></img>
+                <img src="documentation/screenshots/2.PNG"></img>
             </div>
         </div>
 
