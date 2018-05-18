@@ -47,9 +47,19 @@
         <div class='tab-content text-center'>
             <div class='tab-pane active' id='login'>
                 <h1>Login</h1><br/>
-                <form method="post" action="verifyUser.php">
-                    <input type="text" name="username" placeholder="Username"/><br />
-                    <input type="password" name="password" placeholder="Password" /><br />
+                <form id="loginForm" method="post" action="verifyUser.php">
+                    <div class='form-group row justify-content-center'>
+                        <label for="username" class="col-sm-2 col-form-label">Username</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="username" placeholder="Username" required>
+                        </div>
+                    </div>
+                    <div class='form-group row justify-content-center'>
+                        <label for="password" class="col-sm-2 col-form-label">Password</label>
+                        <div class="col-sm-4">
+                            <input type="password" class='form-control' id="password" placeholder="Password" required>
+                        </div>
+                    </div>
                     <br/><input type="submit" name="submit" value="Login" class="btn btn-primary"/>
                 </form>
             </div>
