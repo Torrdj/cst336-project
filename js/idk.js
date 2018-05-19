@@ -2,27 +2,31 @@ $(document).ready(function() {
     $("#sort").click(function(event) {
         console.log("1");
         $('#title').append("2");
-    })
-    $("#loginForm").submit(function(event)
+    })/*
+    $("#submitLogin").click(function(event)
     {
         //cancels the form submission
-        event.preventDefault();
+        //event.preventDefault();
 
         var username = $("#username").val();
         var password = $("#password").val();
 
-        $.ajax(
-            {
+        $.ajax({
                 type: "POST",
                 url: "inc/checkUser.php",
-                data: "username=" + username + "&password=" + password,
-                success: function(text)
+                data: {"username" : username, "password" : password},
+                success: function(data)
                 {
-                    if (text == "success")
+                    if (data[0] == "success")
                     {
-
+                        window.location.href = 'index.php';
+                        console.log(data);
+                    }
+                    else
+                    {
+                        console.log(data);
                     }
                 }
-            })
-    })
+            });
+    });*/
 } );

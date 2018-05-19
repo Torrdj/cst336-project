@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!doctype html>
 <html lang="en">
     <head>
@@ -24,12 +27,27 @@
                     <li class="nav-item">
                         <a class="nav-link" href="index.php">Home</a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Log in</a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="documentation.php">Documentation</a>
                     </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Log in</a>
+                    </li>
+                    <?php
+                        if (isset($_SESSION['username']))
+                        {
+                            echo '
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#">|</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="profile.php">Profile</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="logout.php">Log out</a>
+                                </li>';
+                        }
+                    ?>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -50,7 +68,7 @@
         <div class='tab-content text-center'>
             <div class='tab-pane active' id='login'>
                 <h1>Login</h1><br/>
-                <form id="loginForm" method="post" action="verifyUser.php">
+                <!--<form id="loginForm" method="post" action="inc/checkUser.php">
                     <div class='form-group row justify-content-center'>
                         <label for="username" class="col-sm-2 col-form-label">Username</label>
                         <div class="col-sm-4">
@@ -64,16 +82,26 @@
                         </div>
                     </div>
                     <br/><input type="submit" name="submit" value="Login" class="btn btn-primary"/>
+                </form>-->
+                <form method="post" action="inc/checkUser.php">
+                    <input type="text" name="username" placeholder="Username" required/><br/><br/>
+                    <input type="password" name="password" placeholder="Password" required/><br/><br/>
+                    <input class='btn btn-primary' type="submit" name="submit" value="Login"/>
                 </form>
             </div>
             <div class='tab-pane' id='register'>
                 <h1>Register</h1><br/>
+                <form method="post" action="inc/register.php">
+                    <input type="text" name="username" placeholder="Username" required/><br/><br/>
+                    <input type="password" name="password" placeholder="Password" required/><br/><br/>
+                    <input class='btn btn-primary' type="submit" name="submit" value="Register"/>
+                </form>
             </div>
         </div>
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 

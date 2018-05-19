@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!doctype html>
 <html lang="en">
     <head>
@@ -24,12 +27,27 @@
                     <li class="nav-item">
                         <a class="nav-link" href="index.php">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.php">Log in</a>
-                    </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="#">Documentation</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.php">Log in</a>
+                    </li>
+                    <?php
+                        if (isset($_SESSION['username']))
+                        {
+                            echo '
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#">|</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="profile.php">Profile</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="logout.php">Log out</a>
+                                </li>';
+                        }
+                    ?>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -66,13 +84,13 @@
             </div>
             <div class='tab-pane' id='mockup'>
                 <h1>Mockup</h1><br/>
-                <img src="documentation/mockup/0.png"></img>
+                <img src="documentation/mockup/0.png" style="width: 90%;"></img>
             </div>
             <div class='tab-pane' id='screenshots'>
                 <h1>Screenshots</h1><br/>
-                <img src="documentation/screenshots/0.PNG"></img>
-                <img src="documentation/screenshots/1.PNG"></img>
-                <img src="documentation/screenshots/2.PNG"></img>
+                <img src="documentation/screenshots/0.PNG" style="width: 90%;"></img><br/><br/>
+                <img src="documentation/screenshots/1.PNG" style="width: 90%;"></img><br/><br/>
+                <img src="documentation/screenshots/2.PNG" style="width: 90%;"></img><br/><br/>
             </div>
         </div>
 

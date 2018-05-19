@@ -1,4 +1,6 @@
 <?php
+    session_start();
+
     include "inc/connect.php";
 
     $db = getDBConnection();
@@ -30,11 +32,26 @@
                         <a class="nav-link" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="login.php">Log in</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="documentation.php">Documentation</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.php">Log in</a>
+                    </li>
+                    <?php
+                        if (isset($_SESSION['username']))
+                        {
+                            echo '
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#">|</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="profile.php">Profile</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="logout.php">Log out</a>
+                                </li>';
+                        }
+                    ?>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -43,6 +60,12 @@
             </div>
         </nav>
     </header>
+    <div class="modal fade" id="log">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>
     <body>
         <h1 class='text-center'>TinyPokedex</h1>
         <br/>
