@@ -2,7 +2,14 @@ $(document).ready(function() {
     $("#sort").click(function(event) {
         console.log("1");
         $('#title').append("2");
-    })/*
+    })
+
+    $("#pokedex tr").click(function()
+    {
+        window.location = 'pokemon.php?id=' + this.id;
+    })
+
+    /*
     $("#submitLogin").click(function(event)
     {
         //cancels the form submission

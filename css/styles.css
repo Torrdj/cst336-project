@@ -15,3 +15,15 @@
      height: 12px;
      vertical-align: middle;
 }
+
+.row
+{
+    width: 56em;
+    margin: auto;
+}
+
+#stats, #moves
+{
+    margin: auto;
+    margin-bottom: 16px;
+}

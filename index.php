@@ -60,16 +60,10 @@
             </div>
         </nav>
     </header>
-    <div class="modal fade" id="log">
-        <div class="modal-dialog">
-            <div class="modal-content">
-            </div>
-        </div>
-    </div>
     <body>
         <h1 class='text-center'>TinyPokedex</h1>
         <br/>
-        <table class='table table-hover text-center' style='width: 90%; margin: auto;'>
+        <table id='pokedex' class='table table-hover text-center' style='width: 90%; margin: auto;'>
             <thead class='thead-dark'>
                 <tr>
                     <th>Image</th>
@@ -83,7 +77,7 @@
                     $pokemons = $db->query("SELECT * FROM pokemons");
                     while ($pokemon = $pokemons->fetch(PDO::FETCH_ASSOC))
                     {
-                        echo "<tr>
+                        echo "<tr id=".$pokemon['id'].">
                                 <td><img src='".$pokemon['img_url']."' class='rounded' alt = 'img'></td>
                                 <td>".$pokemon['id']."</td>
                                 <td>".$pokemon['type1']."<br/>".$pokemon['type2']."</td>
